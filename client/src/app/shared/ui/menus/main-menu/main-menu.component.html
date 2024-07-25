@@ -1,0 +1,33 @@
+<mat-toolbar
+  class="flex items-center justify-between px-4 py-2 bg-blue-600 text-white"
+>
+  <span>Application cocktail</span>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <span class="material-icons bg-black">menu</span>
+  </button>
+  <mat-menu
+    #menu="matMenu"
+    class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md"
+  >
+    <nav class="flex flex-col p-4">
+      <a routerLink="cocktails" class="text-blue-600 py-2">Cocktails</a>
+      <ul class="list-none p-0">
+        <li class="py-2">
+          <a routerLink="cocktails" routerLinkActive="font-bold underline"
+            >Recettes</a
+          >
+        </li>
+        <li class="py-2">
+          <a routerLink="panier" routerLinkActive="font-bold underline"
+            >Ingrédients</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </mat-menu>
+</mat-toolbar>

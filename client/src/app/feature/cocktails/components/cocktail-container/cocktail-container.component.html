@@ -1,0 +1,8 @@
+<div class="flex justify-around w-[1200px] mx-auto">
+  <div class="w-1/2">
+    <app-cocktails-list [cocktails]="cocktails$ | async"></app-cocktails-list>
+  </div>
+  <div class="w-1/2">
+    <router-outlet></router-outlet>
+  </div>
+</div>

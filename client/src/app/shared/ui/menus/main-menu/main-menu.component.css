@@ -1,0 +1,11 @@
+.example-icon {
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.favorite-icon {
+  color: red;
+}
