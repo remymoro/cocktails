@@ -1,28 +1,30 @@
-<form [formGroup]="loginForm" (submit)="save()">
-  <div class="flex flex-col space-y-4">
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Enter your email</mat-label>
-      <input
-        matInput
-        placeholder="pat@exemple.com"
-        [formControl]="email"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Enter your password</mat-label>
-      <input
-        matInput
-        placeholder="*****"
-        [formControl]="password"
-        type="password"
-        required
-      />
-    </mat-form-field>
-  </div>
+<div class="container w-[500px] mx-auto h-screen mt-44">
+  <form [formGroup]="loginForm" (submit)="save()">
+    <div class="flex flex-col space-y-4">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@exemple.com"
+          [formControl]="email"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          placeholder="*****"
+          [formControl]="password"
+          type="password"
+          required
+        />
+      </mat-form-field>
+    </div>
 
-  <button mat-fab extended color="primary" class="mt-4" [disabled]="!isValid">
-    <mat-icon>favorite</mat-icon>
-    Log in
-  </button>
-</form>
+    <button mat-fab extended color="primary" class="mt-4" [disabled]="!isValid">
+      <mat-icon>favorite</mat-icon>
+      Log in
+    </button>
+  </form>
+</div>

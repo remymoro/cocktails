@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { userIsAuthenticated } from './feature/authentication/guards/authenticate.guard';
 
 export const routes: Routes = [
   {
@@ -7,6 +8,7 @@ export const routes: Routes = [
       import('./feature/cocktails/cocktails.route').then(
         (item) => item.cocktailRoutes
       ),
+    canActivate: [userIsAuthenticated],
   },
 
   {

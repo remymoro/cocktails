@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { AuthenticationApplication } from '../services/authentication.application';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  private readonly application = inject(AuthenticationApplication);
   loginForm = inject(FormBuilder).group({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -41,5 +43,12 @@ export class LoginComponent {
     return this.loginForm.valid;
   }
 
-  save(): void {}
+  save(): void {
+    if (this.loginForm.value.email && this.loginForm.value.password) {
+      this.application.login(
+        this.loginForm.value.email,
+        this.loginForm.value.password
+      );
+    }
+  }
 }
