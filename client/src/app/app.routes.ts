@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
- 
   {
     path: '',
     loadChildren: () =>
@@ -14,5 +13,13 @@ export const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./feature/panier/panier.route').then((item) => item.panierRoutes),
+  },
+
+  {
+    path: '',
+    loadChildren: () =>
+      import('./feature/authentication/authentication.routes').then(
+        (item) => item.authenticationRoutes
+      ),
   },
 ];

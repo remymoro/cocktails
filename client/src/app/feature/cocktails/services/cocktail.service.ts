@@ -24,8 +24,41 @@ export class CocktailService {
     );
   }
 
-  public getCocktail(index: number) {
-    return this.cocktails$.value[index];
+  public getCocktail(index: number): Observable<Cocktail> {
+    return this.cocktails$.pipe(
+      filter((cocktails: Cocktail[]) => cocktails != null),
+      map((cocktails: Cocktail[]) => cocktails[index])
+    );
+  }
+
+  public addCocktail(cocktail: Cocktail): Observable<Cocktail> {
+    return this._http.post<Cocktail>(this._api_url, cocktail).pipe(
+      tap((savedCocktail: Cocktail) => {
+        const value = this.cocktails$.value;
+        this.cocktails$.next([...value, savedCocktail]);
+      })
+    );
+  }
+
+  public editCocktail(
+    cocktailId: string,
+    editedCocktail: Cocktail
+  ): Observable<Cocktail> {
+    return this._http
+      .patch<Cocktail>(`${this._api_url}/${cocktailId}`, editedCocktail)
+      .pipe(
+        tap((savedCocktail: Cocktail) => {
+          this.cocktails$.next(
+            this.cocktails$.value.map((cocktail: Cocktail) => {
+              if (cocktail.name === savedCocktail.name) {
+                return savedCocktail;
+              } else {
+                return cocktail;
+              }
+            })
+          );
+        })
+      );
   }
 
   public seed(): void {

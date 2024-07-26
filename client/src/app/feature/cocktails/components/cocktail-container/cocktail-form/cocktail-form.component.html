@@ -1,1 +1,81 @@
-<h1>ccrerere</h1>
+<form
+  *ngIf="cocktailForm"
+  [formGroup]="cocktailForm"
+  (ngSubmit)="submit()"
+  class="space-y-6"
+>
+  <div class="form-group flex flex-col space-y-2">
+    <label class="text-gray-700">Nom</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="p-2 border border-gray-300 rounded-md"
+    />
+  </div>
+  <div class="form-group flex flex-col space-y-2">
+    <label class="text-gray-700">Image</label>
+    <input
+      formControlName="img"
+      type="text"
+      class="p-2 border border-gray-300 rounded-md"
+    />
+  </div>
+  <div class="form-group flex flex-col space-y-2">
+    <label class="text-gray-700">Description</label>
+    <input
+      formControlName="description"
+      type="text"
+      class="p-2 border border-gray-300 rounded-md"
+    />
+  </div>
+
+  <button
+    (click)="addIngredient()"
+    class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+    type="button"
+  >
+    Ajouter ingrédient
+  </button>
+  <hr class="my-4" />
+
+  <div formArrayName="ingredients" class="space-y-4">
+    <div
+      [formGroupName]="index"
+      *ngFor="let ingredient of ingredients.controls; let index = index"
+      class="space-y-2"
+    >
+      <div class="form-group flex flex-col space-y-2">
+        <label class="text-gray-700">Nom</label>
+        <input
+          formControlName="name"
+          type="text"
+          class="p-2 border border-gray-300 rounded-md"
+        />
+      </div>
+      <div class="form-group flex flex-col space-y-2">
+        <label class="text-gray-700">Quantité</label>
+        <input
+          formControlName="quantity"
+          type="number"
+          class="p-2 border border-gray-300 rounded-md"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="actions flex space-x-4">
+    <button
+      [disabled]="cocktailForm.invalid"
+      class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 disabled:opacity-50"
+    >
+      Valider
+    </button>
+    <button
+      type="button"
+      routerLink="../"
+      class="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600"
+    >
+      Annuler
+    </button>
+  </div>
+</form>

@@ -15,17 +15,35 @@
     class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md"
   >
     <nav class="flex flex-col p-4">
-      <a routerLink="cocktails" class="text-blue-600 py-2">Cocktails</a>
+      <a
+        routerLink="cocktails"
+        routerLinkActive="font-bold underline text-blue-600 py-2"
+        >Cocktails</a
+      >
       <ul class="list-none p-0">
         <li class="py-2">
-          <a routerLink="cocktails" routerLinkActive="font-bold underline"
+          <a
+            routerLink="cocktails"
+            routerLinkActive="font-bold underline text-blue-600 py-2"
             >Recettes</a
           >
         </li>
         <li class="py-2">
-          <a routerLink="panier" routerLinkActive="font-bold underline"
+          <a
+            routerLink="panier"
+            routerLinkActive="font-bold underline text-blue-600 py-2"
             >Ingrédients</a
           >
+        </li>
+        <li class="py-2">
+          <a
+            routerLink="register"
+            routerLinkActive="font-bold underline text-blue-600 py-2 "
+            >Register</a
+          >
+        </li>
+        <li class="py-2">
+          <a routerLink="login" routerLinkActive="font-bold underline">Login</a>
         </li>
       </ul>
     </nav>
