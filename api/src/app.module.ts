@@ -4,6 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { CocktailModule } from './cocktail/cocktail.module';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { CocktailModule } from './cocktail/cocktail.module';
     }),
     IngredientsModule,
     CocktailModule,
+    UserModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

@@ -1,4 +1,4 @@
-import { Type } from 'class-transformer/types/decorators';
+import { Type } from 'class-transformer';
 import { IsArray, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 import { CreateIngredientDto } from 'src/ingredients/dto/create-ingredient.dto';
 

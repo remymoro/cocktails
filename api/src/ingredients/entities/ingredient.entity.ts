@@ -12,9 +12,6 @@ export class Ingredient {
   @Column()
   quantity: number;
 
-  @Column()
-  unit: string;
-
   @ManyToOne(() => Cocktail, (cocktail) => cocktail.ingredients, {
     onDelete: 'CASCADE',
   })

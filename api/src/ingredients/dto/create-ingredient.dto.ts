@@ -8,8 +8,4 @@ export class CreateIngredientDto {
   @IsNumber()
   @IsNotEmpty({ message: 'The quantity field is required.' })
   quantity: number;
-
-  @IsString()
-  @IsNotEmpty({ message: 'The unit field is required.' })
-  unit: string;
 }
