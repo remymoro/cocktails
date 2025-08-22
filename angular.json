@@ -1,4 +1,13 @@
 {
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "skipTests": true,
+      "flat": true
+    }
+  },
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -87,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a94645ef-5e8b-4519-8830-2c125a0bbe17"
   }
 }
